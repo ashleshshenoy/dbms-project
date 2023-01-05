@@ -1,0 +1,40 @@
+convention 
+    404 -> not found 
+    200 -> success( get , delete , patch )
+    201 -> success ( post )
+    400 -> bad request 
+    409 -> resource conflit / already exists 
+
+
+
+queries :
+
+create table category(
+	_id int primary key auto_increment ,
+	name varchar(50) unique not null,
+	description varchar(100)
+)
+
+create table preference(
+	_pid int,
+	_cid int, 
+	primary key( _pid, _cid ), foreign key (_cid) references category(_id) ,  foreign key (_pid) references profile(_id)
+);
+
+create table subscription(
+	_pid int ,
+	_sid int ,
+	primary key( _sid, _pid ), foreign key (_pid) references profile(_id) , foreign key (_sid) references profile(_id)
+
+)
+_pd ->  profile subscribed / channel 
+_sid -> subscribers id / subscriber
+
+
+create table preference (
+	_pid int,
+	_cid int,
+	primary key( _pid, _cid ), foreign key (_pid) references category(_id) , foreign key (_pid) references profile(_id)
+)
+
+

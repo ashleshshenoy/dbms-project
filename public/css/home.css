@@ -1,0 +1,214 @@
+body {
+    background: rgb(135,135,255);
+    background: linear-gradient(90deg, rgba(135,135,255,1) 0%, rgba(32,32,223,1) 45%, rgba(11,4,142,1) 84%);        
+}
+nav{
+    height: 100px;
+    background: rgb(73, 73, 255);
+    background: linear-gradient(90deg, rgba(135,135,255,1) 0%, rgba(32,32,223,1) 45%, rgba(11,4,142,1) 84%);        
+}
+.loader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+#loader {
+    animation: 2s spin infinite linear;
+}
+
+@keyframes spin {    
+    0%{
+        transform: none;
+    }
+    50%{
+      transform: rotate(0.5turn);
+    }
+
+    100%{
+        transform: rotate(-0.5turn);
+    }
+}
+
+
+.hero{
+    display: none;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
+
+#d1{
+    animation:3s pop infinite ease-in-out ;
+}
+#d2 {
+    animation:3s shadow infinite ease-in-out ;
+
+}
+
+.floating-animation-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-text{
+    width: 75ch;
+}
+
+.hero-text h1{
+    font-weight: 600;
+    font-family: Poppins;
+    font-size: 45px;
+    color: white;
+    font-stretch: wider;
+}
+.hero-text button{
+    outline: 0;
+    border: 0;
+    width: 200px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #FF6597;
+    padding: 20px;
+    border-radius: 40px;
+
+
+}
+
+
+@keyframes pop {    
+    from{
+        transform: none;
+    }
+    50%{
+        transform: translateX(20px) translateY(-20px);
+
+    }
+}
+
+@keyframes shadow {    
+    from{
+        transform: none;
+    }
+    50%{
+        transform: scaleX(0.7);
+
+    }
+}
+
+
+
+
+/*________________________________ info section css____________________________________________ 
+_______________________________________________________________________________________________*/
+
+
+.info{
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+.info div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    transition: 0.5s ease-in-out;
+    font-family: poppins;
+
+}
+.info div:hover {
+    transform: translateY(-20px)  scale3d(1.1, 1.1, 1.1);
+}
+
+
+
+
+
+/*________________________________ cfa section css____________________________________________ 
+_______________________________________________________________________________________________*/
+
+
+.cfa{
+    display: none;
+    min-height: 70vh;
+    background-color: white;
+    font-family: poppins;
+    font-weight: 900;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+}
+
+.cfa p{
+    max-width: 110ch;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+.cfa button{
+    min-height: 50px;
+    min-width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*________________________________ footer section css____________________________________________ 
+_______________________________________________________________________________________________*/
+
+
+footer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+/*____________________________custom scroll bar css____________________________________________ 
+_______________________________________________________________________________________________*/
+
+
+
+body::-webkit-scrollbar {
+    width: 0.3em;
+  }
+   
+  body::-webkit-scrollbar-track {
+    background-color: white;
+}
+   
+  body::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(135,135,255,1) 0%, rgba(32,32,223,1) 45%, rgba(11,4,142,1) 84%);        
+        
+  }
+  

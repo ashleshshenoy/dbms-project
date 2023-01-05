@@ -1,29 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const {sql , con } = require('../db/db')
-
-
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
 
 router.post("/signup", async (req, res)=>{
 
-    con.query(`SELECT * FROM user WHERE email='${req.body.email}';`, (err, result, fields)=>{
-        if(result.length !=0) return res.send("user already exists");
-        con.query(`INSERT INTO user VALUES('${req.body.email}','${req.body.password}')`, function (err, result, fields) {
-            res.send(result)
+    con.query(`SELECT * FROM auth WHERE email='${req.body.email}';`, async (err, result, fields)=>{
+        if(result.length !=0) return res.status(409).send("user already exists");
+        const salt = await bcrypt.genSalt(10);
+        const password = await bcrypt.hash( req.body.password , salt);
+        con.query(` auth(email,password) VALUES('${req.body.email}','${password}')`, function (err, result, fields) {
+            console.log("done")
+            res.status(200).send(result)
         });  
     })
 })
 
 
 router.post("/login", async (req, res)=>{
-    con.query(`SELECT * FROM user WHERE email='${req.body.email}';`, (err, result, fields)=>{
-        if(result.length ==0) return res.send("user not found ! please signup");
-        console.log(result)
-        if(result.password == req.body.password)  
-        res.send("loged in")
-            //todo send  jwt token 
-        else res.send("invalid password");
+    con.query(`SELECT * FROM auth WHERE email='${req.body.email}';`, async (err, result, fields)=>{
+        if(result.length ==0) return res.status(404).send("user not found ! please signup");
+        const validPassword = await bcrypt.compare(req.body.password, result[0].password);
+        if(!validPassword) return res.status(404).send('invalid email or password');
+        const token = jwt.sign({ _id: result[0]._id }, config.get('jwtPrivateKey'));
+        return res.cookie('x-auth-token', token).status(200).send(token);
     })
 })
 
