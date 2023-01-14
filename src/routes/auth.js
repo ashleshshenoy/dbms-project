@@ -12,12 +12,13 @@ router.post("/signup", async (req, res)=>{
         if(result.length !=0) return res.status(409).send("user already exists");
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash( req.body.password , salt);
-        con.query(` auth(email,password) VALUES('${req.body.email}','${password}')`, function (err, result, fields) {
-            console.log("done")
+        con.query(`INSERT INTO auth(email,password) VALUES('${req.body.email}','${password}')`, function (err, result, fields) {
             res.status(200).send(result)
         });  
     })
 })
+
+
 
 
 router.post("/login", async (req, res)=>{
@@ -33,4 +34,15 @@ router.post("/login", async (req, res)=>{
 
 
 
+router.get("/logout", async (req, res)=>{
+    res.clearCookie("x-auth-token");
+    res.end("user logged out")
+})
+
+
+
+
+
 module.exports = router;
+
+

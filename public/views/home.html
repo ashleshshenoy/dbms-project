@@ -4,134 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon" />
-    <title>widly</title>
+    <title>Widley</title>
+    <link rel="stylesheet" href="../css/videoload.css">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/home.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-        <div class="container-fluid">
-        <img src="../images/logo.png" width="50" class="me-2" alt="">
-          <a class="navbar-brand" href="#">Widley.</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../views/login.html">login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">contact</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  more
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-         
-          </div>
-        </div>
-      </nav>
-    <section class="container hero">
-      <div class="hero-text">
+    
+       
 
-        <h1 >Top video streaming platform for short videos & online contents.</h1>
-       <a href="../views/signup.html"> <button class=" mt-3 get-started-btn " >
-          Get started now
-        </button></a>
-      </div>
-      <div class="floating-animation-box">
-        <img src="../images/d1.png"  id="d1" alt="">
-        <img src="../images/d3.png"  id="d2"alt="" srcset="">
-      </div>
-      
-
-    </section>
-
-    <section class="info container">
+    
         
-      <div>
-        <img src="../images/usersicon.png" alt="" width="100px" srcset="">
-        <h1>Users</h1>
-        <p>20000 active users</p>
-      </div>
-      <div>
-        <img src="../images/videoicon.png" width="100px" alt="" srcset="">
-        <h1>Videos</h1>
-        <p>4000000 videos</p>
-      </div>
-      <div>
-        <img src="../images/playicon.png" width="100px" alt="" srcset="">
-        <h1>Views</h1>
-        <p>300000000 views</p>
-      </div>
-      <div>
-        <img src="../images/likeicon.png" width="100px" alt="" srcset="">
-        <h1>Likes</h1>
-        <p>4000000</p>
-      </div>
-      <div>
-        <img src="../images/commenticon.png" width="100px" alt="" srcset="">
-        <h1>Videos</h1>
-        <p>100000 short videos</p>
-      </div>
-    </section>
+        
+    
+        <nav>
+            <button class="collapse-btn" onclick="collapse()" type="button">
+                <img src="../images/burger.png"  class="ms-3" width="30px" alt="">
+            </button>
+            <div  class="branding ms-5">
 
+            <a class="navbar-brand text-dark" href="#">Widley.</a>
+            </div>
 
+            <input type="text" id="search-bar" class="ms-auto">
+            <button id="search-btn"><i class="bi bi-search" ></i></button>
+                
+        </nav>
+    
 
-    <section class="cfa ">
-      
-        <h1>Join our platform to experince the best online content</h1>
-        <h4>seamless short video streaming, enjoy global content at your fingertip.</h4>
-        <p>widley is a short-formed video hosting service that lets content creators share their talent, knowlegde, news and information across various categories which is made available to viewers across the globle to interect and get entertained.
-          The whole new world of short streaming application awaits your exploration.
-        </p>
-        <button class="mt-3 btn  btn-outline-success">Signup now</button>
+        <div  class="sidebar" >
+            <a>
+                <div class="nav-icon-container active">
+                    <img src="../images/feed.png" width="30" alt="" srcset="">
+                    Home
+                </div>
+            </a><a href="../views/subscription.html">
+                <div class="nav-icon-container">
+                    <img src="../images/subscribe.png"  width="30" alt="" >
+                    Subscription
+                </div>
+            </a><a href="../views/category.html">
+                <div class="nav-icon-container">
+                    <img src="../images/category.png" width="30" alt="" srcset="">
+                    Category
+                </div>
+            </a><a href="../views/profile.html">
+                <div class="nav-icon-container">
+                    <img src="../images/profileicon.png"  width="30" alt="" srcset="">
+                    Profile
+                </div>
+            </a>
+            <a href="../views/myvideo.html">
+                <div class="nav-icon-container">
+                    <img src="../images/upload.png"  width="30" alt="" srcset="">
+                    <p class="m-0">My videos</p>
+                </div>
+            </a>
+        </div>
+        
 
-    </section>
+        <section >
 
- 
+            
+        </section>
 
-    <footer>
-
-    </footer>
-
-
-
-
-    <div class="loader-container">
-      <img src="../images/logo.png" id="loader" width="100px" alt="">
-
-    </div>
-    <script>
-      var myVar;
-      
-      function myFunction() {
-        myVar = setTimeout(showPage, 3000);
-      }
-      
-      function showPage() {
-        console.log("yello")
-        document.getElementsByClassName("loader-container")[0].style.display = "none";
-  
-        document.getElementsByTagName("footer")[0].style.display = "flex";
-        const list = document.getElementsByTagName("section")
-        for(var i=0; i<list.length; i++) 
-          list[i].style.display = "flex";
-      }
-      myFunction()
-      </script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/myvideo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    <nav>
+        <button class="collapse-btn" onclick="collapse()" type="button">
+            <img src="../images/burger.png"  class="ms-3" width="30px" alt="">
+        </button>
+        <div  class="branding ms-5">
+
+        <a class="navbar-brand text-dark" href="#">Widley.</a>
+        </div>
+
+        <input type="text" id="search-bar" class="ms-auto">
+        <button id="search-btn"><i class="bi bi-search" ></i></button>
+            
+    </nav>
+
+
+    <div  class="sidebar" >
+        <a>
+            <div class="nav-icon-container ">
+                <img src="../images/feed.png" width="30" alt="" srcset="">
+                Home
+            </div>
+        </a><a href="../views/subscription.html">
+            <div class="nav-icon-container">
+                <img src="../images/subscribe.png"  width="30" alt="" >
+                Subscription
+            </div>
+        </a><a href="../views/category.html">
+            <div class="nav-icon-container">
+                <img src="../images/category.png" width="30" alt="" srcset="">
+                Category
+            </div>
+        </a><a href="../views/profile.html">
+            <div class="nav-icon-container">
+                <img src="../images/profileicon.png"  width="30" alt="" srcset="">
+                Profile
+            </div>
+        </a>
+        <a href="../views/myvideo.html">
+            <div class="nav-icon-container active">
+                <img src="../images/upload.png"  width="30" alt="" srcset="">
+                <p class="p-0">My videos</p>
+                </div>
+        </a>
+    </div>
+    
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">New video</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-container ms-auto me-auto">
+                <div class="icon-container">
+                    <img  src="../images/logo.png" width="80" height="80" alt="">
+                </div>
+                <h3 id="header-txt">Hey creator</h3>
+                <p id="desc-txt" >upload a new video</p>
+                <form  method="post" class="video-form"  enctype="multipart/form-data">
+                    <fieldset>
+                    <input type="text"  name="title" class="title video-input" placeholder=" enter your Video title" required>
+                    <textarea type="text" name="desc" class="desc video-input" placeholder=" enter your video description"  required></textarea>
+                    <input type="file" name="file" id="file" class="video-input" required>
+                    <div class="category-container">
+                    </div> 
+                    <button class="modal-upload-btn"  type="submit" >upload</button>
+                </fieldset>
+                </form>
+            </div>       
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+        <section  class="main">
+            
+
+    <!-- Button trigger modal -->
+    <h3 class="mt-5 mb-3 text-primary">My Videos</h3>
+    <p class="text-secondary">Here are all videos that you ever uploaded ! click on video below to edit or delete the video. Upload a new video within 3 clicks.</p>
+    <div class="video-container">
+               
+            </div>
+
+            
+
+
+        </section>
+        
+        
+<script src="../js/navbar.js"></script>
+    <script src="../js/myvideo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+</body>
+</html>

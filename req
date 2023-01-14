@@ -1,0 +1,34 @@
+enable proper navigation
+sort the video 
+change home-page -> main
+
+
+
+
+
+features :
+ 1) vidoe detail view 
+    - comment section 
+    - like dislike share view
+    + recommendation section (more videos)
+    
+2) profile view 
+    - all videos display 
+
+3)category view 
+    - display videos from multiple categories
+
+4) my video view
+    - show all my videos
+    - delete old video
+    - edit name and description of old video 
+
+5) profile view     
+    - history 
+    - update profile details  
+
+6) take image and username while registering
+
+7) create thumbnail
+
+8) paginate the videos

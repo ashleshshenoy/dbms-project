@@ -41,7 +41,7 @@ button.onsubmit = (e)=>{
     }
     }).then((e)=>{
         if(e.status == 200)
-        alert("user loggedin successfully")
+        window.location.href = './home.html'
         else if(e.status == 404)
         alert("invalid password or email")
     })

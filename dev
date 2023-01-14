@@ -27,14 +27,82 @@ create table subscription(
 	primary key( _sid, _pid ), foreign key (_pid) references profile(_id) , foreign key (_sid) references profile(_id)
 
 )
-_pd ->  profile subscribed / channel 
+_pid ->  profile subscribed / channel 
 _sid -> subscribers id / subscriber
 
 
 create table preference (
 	_pid int,
 	_cid int,
-	primary key( _pid, _cid ), foreign key (_pid) references category(_id) , foreign key (_pid) references profile(_id)
+	primary key( _pid, _cid ), foreign key (_cid) references category(_id) , foreign key (_pid) references profile(_id)
 )
 
 
+create table video (
+	_id int primary key auto_increment,
+	name varchar(225),
+	description varchar(500),
+	video_url varchar(500),
+	_pid int ,
+	up_data Date,
+	like_count int,
+	dis_count int,
+	comment_count int,
+	view_count int, 
+	foreign key (_pid) references profile(_id) on delete cascade 
+
+)
+
+create table video_category(
+	_vid int,
+	_cid int ,
+	primary key ( _vid, _cid ), 
+	foreign key (_vid) references video(_id) on delete cascade,
+	foreign key (_cid) references category(_id) on delete cascade
+)
+
+create table video_dislike( 
+	date Date,
+	_vid int, 
+	_pid int,
+	primary key(_vid, _pid),
+	foreign key (_pid) references profile(_id) on delete cascade, foreign key (_vid) references video(_id) on delete cascade
+)
+
+create table video_like( 
+	date Date,
+	_vid int, 
+	_pid int,
+	primary key(_vid, _pid),
+	foreign key (_pid) references profile(_id) on delete cascade, foreign key (_vid) references video(_id) on delete cascade
+)
+
+
+
+create table view(
+	date Date,
+	_vid int ,
+	_pid int,
+	primary key (_vid , _pid),
+	foreign key (_pid) references profile(_id) on delete cascade , foreign key (_vid) references video(_id) on delete cascade
+)
+
+
+
+
+select _id from video v, video_category vc where vc._vid = v._id  and vc._cid in (select  vc._cid from view v, video_category vc  where _pid=3 and vc._vid=v._vid group by vc._cid  order by count(*) desc limit 3) order by up_data limit 30;
+
+
+
+
+-- SELECT v.VID, v.thumb
+-- FROM video AS v
+-- INNER JOIN
+--      (SELECT VID
+--      FROM video
+--      WHERE title LIKE "%'.$Channel['name'].'%"
+--      ORDER BY viewtime DESC
+--      LIMIT 5) as v2
+--   ON v.VID = v2.VID
+-- ORDER BY RAND()
+-- LIMIT 1
