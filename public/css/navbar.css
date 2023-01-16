@@ -1,7 +1,6 @@
 body{
     padding: 0;
     margin: 0;
-    background-color: aliceblue !important;
 }
 
 
@@ -109,7 +108,7 @@ nav{
     }
     .subscribed-bar, .category-container , section{
         margin-left: 0px !important;
-        padding: 0px;
+        padding: 0px !important;
     }
     .branding{
         display: none;

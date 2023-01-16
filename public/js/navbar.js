@@ -21,3 +21,10 @@ function collapse() {
       
     }
   }
+
+
+const searchBtn = document.querySelector("#search-btn");
+const searchBar = document.querySelector("#search-bar");
+searchBtn.onclick = function(){
+    window.location.href = `http://localhost:8000/views/search.html?search=${searchBar.value}`;
+}

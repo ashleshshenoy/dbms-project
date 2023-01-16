@@ -1,0 +1,276 @@
+section{
+    padding-left: 80px;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 80vh );
+
+}
+
+
+
+
+.profile-container {
+    background-color: white;
+    width: 100%;
+    position: relative;
+    align-items: flex-end;
+    height: 30vh;
+    gap: 3rem;
+    padding: 3rem 0rem 0rem 3rem;
+    display: flex;
+    
+    
+}
+
+.video-history-container{
+    background-color: white;
+    width: 100%;
+    padding : 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.video-history-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.profile-background{
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 0;
+    width: 100%;
+    height: 150px;
+    background: url(https://source.unsplash.com/random/1200x600/?abstract);
+    background-size: cover;
+
+}
+
+
+
+.video-container{
+    color: black;
+    text-decoration: none !important;
+    width: 300px;
+    padding: 10px;
+    height: 300px;
+}
+
+
+
+.video-container:hover{
+    background-color: rgb(245, 245, 245);
+    border-radius: 0.5rem;
+
+}
+
+.watch-history-title{
+    background-color: white;
+    margin: 0;
+    color: rgb(74, 73, 73);
+    padding : 5rem 0rem 0rem 2rem;
+}
+
+
+
+.profile-username{
+    text-transform: capitalize;
+
+}
+
+
+.meta-container{
+    display: flex;
+    z-index: 2;
+    gap:0.5rem;
+    flex-direction: column;
+
+}
+
+.edit-btn{
+    width: 100px;
+    border-radius: 3rem !important;
+    padding : 0.5rem !important;
+  
+    outline: 0;
+    background-color: white;
+}
+
+.profile-pic{
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+
+
+
+
+
+.video-meta-container{
+    color: black;
+    text-decoration: none !important;
+
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    gap: 1rem;
+    height:35%;
+    align-items:flex-start;
+    justify-content: flex-start;
+    padding-left: 5px;
+}
+
+.video-title{
+    color: black;
+    text-decoration: none !important;
+    font-size: 16px;
+    
+}
+
+.video-channel{
+    font-size: 12px;
+    color : grey;
+    position: absolute;
+    bottom: 35px;
+    
+
+}
+
+.view-count{
+    position: absolute;
+    bottom: 0px;
+
+    font-size: 12px;
+    color : grey;
+    margin-top:5px;
+    width: 100%; 
+    
+
+}
+
+.video-channel-img{
+    width: 35px;
+    height: 35px;
+    border-radius: 10rem;
+}
+
+.video-meta{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+
+
+.video-thumbnail{
+    
+    width: 100%;
+    height: 60%;
+    border-radius: 0.5rem;
+}
+
+
+
+
+
+
+form{
+    width: 100%;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-between;
+}
+
+
+.form-container{
+    box-sizing: border-box;
+    padding:30px;
+    height: 80vh;
+    width: 50%;
+    max-width: 500px;
+    min-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: poppins;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    
+}   
+
+.video-input, textarea{
+    
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    max-width: 325px;
+    width: 100%;
+    min-width: 250px;
+    margin-top: 10px;
+    padding: 2px 10px 2px 10px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+
+
+}
+.modal-upload-btn{
+
+    border-radius: 0.3rem;
+    background-color: rgb(65, 65, 255);
+    color :white;
+    max-width: 325px;
+    width: 100%;
+    min-width: 250px;
+    height: 40px;
+    border: 0;
+
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    max-width: 325px;
+    width: 100%;
+    min-width: 250px;
+    margin-top: 10px;
+    padding: 2px 10px 2px 10px;
+    height: 40px;
+    background-color: white;
+    margin-right: 100px;
+    border: 1px solid black;
+}
+
+  
+
+#desc-txt{
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+    max-width: 45ch;
+    margin-bottom: 50px;
+}
+
+
+#header-txt{
+    color:rgb(91, 91, 91);
+    margin: 0px;
+}
+
+
+#profile-icon{
+    width: 80;  
+
+    height: 80px;
+    border-radius: 100% !important;
+}

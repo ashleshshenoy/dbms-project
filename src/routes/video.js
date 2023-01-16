@@ -25,8 +25,17 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 router.post('/' , auth, upload.single("file"), async (req, res) => {
     console.log(req.body)
 
-    con.query(`INSERT INTO video(name, description, video_url, _pid, up_data,like_count, dis_count, comment_count, view_count) 
-    VALUES('${req.body.name}', '${req.body.description}', '${req.file.path.split('/')[1]}', '${req.user._id}', '${new Date().toISOString().slice(0, 10).replace('T', ' ')}',0,0,0,0 )`,
+
+        const proc = new ffmpeg({ source: req.file.path,nolog: true })
+        .takeScreenshots({ filename : "user_"+req.user._id + '_' + Date.now() + '.png' , timemarks: [ '00:00:01.000' ], size: '280x168'}, 'thumbnails/', function(err, filenames) {
+        console.log(filenames);
+      });
+    
+      const thumbnnailPath = proc.options.source
+    
+
+    con.query(`INSERT INTO video(name, description, video_url, _pid, up_data,like_count, dis_count, comment_count, view_count, thumbnail) 
+    VALUES('${req.body.name}', '${req.body.description}', '${req.file.path.split('/')[1]}', '${req.user._id}', '${new Date().toISOString().slice(0, 10).replace('T', ' ')}',0,0,0,0 ,'${thumbnnailPath}')`,
         (error, result, fields)=>{
             req.body.category.split(',').forEach(element => {
                 con.query(`INSERT INTO video_category VALUES(${result.insertId}, ${element});\n`
@@ -34,7 +43,7 @@ router.post('/' , auth, upload.single("file"), async (req, res) => {
                 })
             });
         }
-        )
+    )
 
         
 
@@ -80,7 +89,7 @@ router.get('/subscribed',auth, (req, res)=>{
 
 // my uploads 
 router.get('/myvideos', auth, (req, res)=>{
-    con.query(`SELECT v._id, v.name , v.view_count, v.up_data , p.username , p.image_url  FROM video v , profile p WHERE v._pid = ${req.user._id} and p._id = v._pid ;`, (error, result, field)=>{
+    con.query(`SELECT v._id, v.name , v.view_count, v.up_data , p.username , p.image_url, v.thumbnail  FROM video v , profile p WHERE v._pid = ${req.user._id} and p._id = v._pid ;`, (error, result, field)=>{
         if(error) return res.send(error)
         res.status(200).send(result);
     });
@@ -131,5 +140,28 @@ router.get('/channel/:id', (req, res)=>{
     });
 
 })
+
+
+//get history of a user
+router.get('/history', auth ,(req, res)=>{
+    con.query(`SELECT  v._id , v.name , v.view_count, v.up_data , p.username , p.image_url  from video v, profile p , view vw where p._id = v._pid and vw._pid=${req.user._id} and vw._vid=v._id limit 10`, (err, result, fields)=>{
+        if(err) console.log(err)
+        res.status(200).send(result)
+    })
+})
+
+
+
+router.get('/search/:keyword', auth ,(req, res)=>{
+    let data = req.params.keyword.split(' ').map((e)=> "name like '%"+e+"%'").join(' OR ')
+    
+    console.log(data)
+    con.query(`SELECT * from video where  (${data}) limit 20`, (err, result, fields)=>{
+       console.log(result)
+       console.log(err)
+        res.send(result);
+    })
+});
+
 
 module.exports = router;

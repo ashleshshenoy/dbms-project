@@ -137,15 +137,21 @@ function renderMyVideos(videos){
         channelName.innerHTML = video.username;
 
         const editBtn = document.createElement("button");
-        editBtn.classList = 'btn btn-primary'
-        editBtn.innerHTML = "edit"
-
+        editBtn.classList = 'edit-btn'
+        const editIcon = document.createElement("i");
+        editIcon.classList = 'bi bi-pencil';
+        editBtn.append(editIcon);
+        editIcon.setAttribute('_id', video._id);
+        editBtn.onclick = (e)=>{
+        
+            console.log(e.target.getAttribute('_id'))
+        }
         const deleteBtn = document.createElement("button");
-        deleteBtn.classList = 'delete-button'
-        const icon = document.createElement("i");
-        icon.classList = "bi bi-trash3"
-        deleteBtn.append(icon)
-        icon.setAttribute('_id',video._id)
+        deleteBtn.classList = 'delete-btn'
+        const deleteIcon = document.createElement("i");
+        deleteIcon.classList = "bi bi-trash3"
+        deleteBtn.append(deleteIcon)
+        deleteIcon.setAttribute('_id',video._id)
         deleteBtn.onclick = (e)=>{
             
             console.log(e.target.getAttribute('_id'));
@@ -159,6 +165,7 @@ function renderMyVideos(videos){
         videoTile.appendChild(thumbnail);
         videoTile.appendChild(videoMetaData);
         videoTile.appendChild(deleteBtn)
+        videoTile.appendChild(editBtn)
 
         videoContainer.appendChild(videoTile);
 

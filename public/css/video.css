@@ -92,3 +92,18 @@ body{
 
 }
 
+
+
+.video-icon{
+    outline: 0;
+    border: 0;
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    background-color: white;
+    
+}
+.video-icon p{
+    text-align: center;
+    font-size: 16px !important;
+}

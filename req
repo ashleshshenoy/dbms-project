@@ -11,24 +11,19 @@ features :
     - comment section 
     - like dislike share view
     + recommendation section (more videos)
-    
-2) profile view 
-    - all videos display 
 
-3)category view 
-    - display videos from multiple categories
+2) search page     
 
-4) my video view
-    - show all my videos
-    - delete old video
+3) my video view
     - edit name and description of old video 
 
-5) profile view     
-    - history 
-    - update profile details  
 
-6) take image and username while registering
 
-7) create thumbnail
+5) take image and username while registering
 
-8) paginate the videos
+6) make use of thumbnail
+
+7) paginate the videos
+
+
+8)logout
