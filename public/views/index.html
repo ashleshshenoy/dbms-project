@@ -65,27 +65,27 @@
       <div>
         <img src="../images/usersicon.png" alt="" width="100px" srcset="">
         <h1>Users</h1>
-        <p>20000 active users</p>
+        <p id="user-count">active users</p>
       </div>
       <div>
         <img src="../images/videoicon.png" width="100px" alt="" srcset="">
         <h1>Videos</h1>
-        <p>4000000 videos</p>
+        <p id="video-count">videos</p>
       </div>
       <div>
         <img src="../images/playicon.png" width="100px" alt="" srcset="">
         <h1>Views</h1>
-        <p>300000000 views</p>
+        <p id="view-count">views</p>
       </div>
       <div>
         <img src="../images/likeicon.png" width="100px" alt="" srcset="">
         <h1>Likes</h1>
-        <p>4000000</p>
+        <p id="like-count">Likes</p>
       </div>
       <div>
         <img src="../images/commenticon.png" width="100px" alt="" srcset="">
-        <h1>Videos</h1>
-        <p>100000 short videos</p>
+        <h1>Comments</h1>
+        <p id="comment-count">Comments</p>
       </div>
     </section>
 
@@ -116,6 +116,31 @@
 
     </div>
     <script>
+
+      const videoCount = document.querySelector("#video-count");
+      const likeCount = document.querySelector("#like-count");
+      const commentCount = document.querySelector("#comment-count");
+      const userCount = document.querySelector("#user-count");
+      const viewCount = document.querySelector("#view-count");
+      fetch('http://localhost:8000/agg',{
+        method : "GET",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+                }
+        }).then(function (a) {
+            return a.json(); // call the json method on the response to get JSON
+        })
+        .then(function (json) {
+          videoCount.innerHTML = json.videoCount + " videos"
+          viewCount.innerHTML = json.viewCount + " views";
+          userCount.innerHTML = json.profileCount + " users";
+          likeCount.innerHTML = json.likeCount + " like";
+          commentCount.innerHTML  = json.commentCount + " comments";
+        
+        })
+
+
+
       var myVar;
       
       function myFunction() {

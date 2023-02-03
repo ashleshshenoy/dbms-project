@@ -8,11 +8,12 @@ const auth = require('../../middleware/auth');
 
 
 router.post('/' , auth, upload.single("file"), async (req, res) => {
+  const filePath = (req.file)? req.file.path.split('/')[1]: "default.png" 
   con.query(`SELECT * FROM profile WHERE _id=${req.user._id};`, async function (err, result, fields) {
     if(result.length != 0) return res.status(409).send("user  profile already exists");
     con.query(`INSERT INTO profile VALUES(
-      ${req.user._id}, '${req.body.username}', '${req.file.path.split('/')[1]}')`, async function (err, result2, fields){
-      res.send("doen")
+      ${req.user._id}, '${req.body.username}', '${filePath}')`, async function (err, result2, fields){
+      res.status(200).send("profile Created")
     })
     
   })

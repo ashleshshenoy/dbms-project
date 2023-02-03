@@ -1,5 +1,5 @@
 .main{
-
+    padding: 10px;
     box-sizing: border-box;
     width: 100%;
     display: flex;
@@ -39,12 +39,11 @@
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
-    min-width: 400px;
-    min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content:center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .icon-container{
@@ -117,15 +116,16 @@ textarea{
     border-radius: 0.3rem;
     background-color: rgb(65, 65, 255);
     color :white;
-    width: 400px;
-    height: 100px;
+    height: 100px !important;
+    width:100%; 
+    max-width: 1000px;
+    margin: 10px; 
     border: 0;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;    text-decoration: none !important;
     margin-top: 10px;
     gap: 1rem;
-    height: 150px !important;
-    width:400px;  
     padding: 10px
+    
 }
 
 
@@ -155,8 +155,10 @@ textarea{
     margin-top: 10px;
     display: flex;
     gap: 1rem;
-    height: 150px !important;
-    width:400px;  
+    height: 200px !important;
+    width:100%; 
+    max-width: 1000px;
+    margin: 10px; 
     padding: 10px;  
     align-items:flex-start;
     justify-content: flex-start;
@@ -201,6 +203,7 @@ textarea{
 
 
 .video-thumbnail{
+    margin-right: 2%;
     aspect-ratio: 16/9;
     height: 100%;
     border-radius: 0.5rem;
@@ -213,16 +216,25 @@ textarea{
 
     position: absolute;
     bottom: 10px;
-    right: 50px;
+    right: 5%;
     border: 0;
+    width: 50px;
+    background-color: white;
+    height: 50px;
+    font-size: 1rem;
     outline: 0;
 
 }
 
 .delete-btn{
+
+    background-color: white;
     position: absolute;
     bottom: 10px;
-    right: 20px;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
     border: 0;
     outline: 0;
 

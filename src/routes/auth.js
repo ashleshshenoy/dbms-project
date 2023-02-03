@@ -13,7 +13,10 @@ router.post("/signup", async (req, res)=>{
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash( req.body.password , salt);
         con.query(`INSERT INTO auth(email,password) VALUES('${req.body.email}','${password}')`, function (err, result, fields) {
-            res.status(200).send(result)
+            console.log(result);
+            console.log(result.insertId)
+            const token = jwt.sign({ _id: result.insertId}, config.get('jwtPrivateKey'));
+            return res.cookie('x-auth-token', token).status(200).send(token);                
         });  
     })
 })

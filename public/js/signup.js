@@ -2,7 +2,7 @@
 var myVar;
         
 function myFunction() {
-  myVar = setTimeout(showPage, 3000);
+  myVar = setTimeout(showPage, 1000);
 }
 
 function showPage() {
@@ -40,7 +40,22 @@ form.onsubmit = (e)=>{
             alert("user created successfully")
             else if(e.status == 409)
             alert("user already exists !")
+        }).then(()=>{
+            const username = document.getElementById("username");
+            let file = document.getElementById("file").files[0];
+            const formData = new FormData();
+            formData.append("username", username.value);
+            formData.append("file",file);
+            fetch("http://localhost:8000/profile/", {
+                method: 'POST',
+                body: formData,  
+            })
         })
+        
+        
+
     }
+    
+
 
 }

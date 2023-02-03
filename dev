@@ -80,7 +80,7 @@ create table video_like(
 
 
 create table view(
-	date Date,
+	view_timestamp int,
 	_vid int ,
 	_pid int,
 	primary key (_vid , _pid),
@@ -93,6 +93,15 @@ create table view(
 select _id from video v, video_category vc where vc._vid = v._id  and vc._cid in (select  vc._cid from view v, video_category vc  where _pid=3 and vc._vid=v._vid group by vc._cid  order by count(*) desc limit 3) order by up_data limit 30;
 
 
+
+create table comment(
+	_id int(10)   primary key auto_increment,
+	_vid int(10),
+	_pid int(10),
+	comment varchar(500),
+	foreign key (_vid) references video(_id) on delete cascade,
+	foreign key (_pid) references profile(_id) on delete cascade
+)
 
 
 -- SELECT v.VID, v.thumb

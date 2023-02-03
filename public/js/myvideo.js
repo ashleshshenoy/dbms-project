@@ -121,7 +121,7 @@ function renderMyVideos(videos){
     
 
         const thumbnail = document.createElement('img');
-        thumbnail.src = 'http://localhost:8000/1672759015340.png'
+        thumbnail.src = 'http://localhost:8000/' + video.thumbnail
         thumbnail.classList = 'video-thumbnail';
 
         const videoTitle = document.createElement("h6");
@@ -165,7 +165,7 @@ function renderMyVideos(videos){
         videoTile.appendChild(thumbnail);
         videoTile.appendChild(videoMetaData);
         videoTile.appendChild(deleteBtn)
-        videoTile.appendChild(editBtn)
+        // videoTile.appendChild(editBtn)
 
         videoContainer.appendChild(videoTile);
 

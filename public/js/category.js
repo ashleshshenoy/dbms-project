@@ -91,8 +91,8 @@ function renderVideoTiles(videos){
       const videoContainer = document.createElement("div");
       videoContainer.classList ="video-container"
   
-      const thumbnail = document.createElement("video");
-      thumbnail.src = "http://localhost:8000/user_2_1673198740654.mp4";
+      const thumbnail = document.createElement("img");
+      thumbnail.src = "http://localhost:8000/" + video.thumbnail;
       thumbnail.classList = "video-thumbnail"
       
   
@@ -100,7 +100,7 @@ function renderVideoTiles(videos){
       metaContainer.classList = "video-meta-container"
   
       const channelImage = document.createElement("img");
-      channelImage.src = "http://localhost:8000/images/s.png";
+      channelImage.src = "http://localhost:8000/" + video.image_url;
       channelImage.classList = "video-channel-img"
     
       
@@ -130,7 +130,12 @@ function renderVideoTiles(videos){
       videoContainer.appendChild(thumbnail)
       videoContainer.appendChild(metaContainer);
       
-      main.appendChild(videoContainer)
+
+      const link = document.createElement("a");
+      link.href = `http://localhost:8000/views/video.html?id=${video._id}`;
+      link.appendChild(videoContainer)    
+      main.appendChild(link)
+
     });
   } 
   
